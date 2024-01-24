@@ -1,0 +1,169 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+#music-player {
+  min-width: 800px; /* Set the maximum width */
+  /* width: 100%; */
+  margin: 0 auto; /* Center the music player */
+  background-color: aqua;
+  text-align: center;
+  padding: 2px 3px;
+  display: grid;
+  grid-template-columns: 300px 500px;
+
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 200px;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0005);
+}
+
+@media (max-width: 800px) {
+  #music-player {
+    justify-content: center;
+    grid-template-columns: 400px;
+    min-width: 400px;
+    width: 400px;
+  }
+}
+
+#song-image {
+  width: 100%;
+}
+
+#song-image img {
+  width: 100%;
+  height: 100%;
+}
+
+#song-details {
+  width: 100%;
+  background: grey;
+  padding: 25px 35px;
+}
+
+@keyframes animate1 {
+  0% {
+    left: -100%;
+  }
+  50%,
+  100% {
+    left: 100%;
+  }
+}
+h1 {
+  padding-top: 2rem;
+  color: aqua;
+}
+#song-details p {
+  padding-top: 1rem;
+  color: white;
+}
+
+#progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: black;
+  cursor: pointer;
+  border-radius: 4px;
+  margin: 40px 0;
+}
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: aqua;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+
+#control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+ion-icon {
+  font-size: 35px;
+  min-width: 60px;
+  min-height: 60px;
+  margin: 20px;
+  background: white;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  color: aqua;
+  box-shadow: 0 10px 20px rgba(255, 26, 26, 0.22);
+}
+
+@media (max-width: 800px) {
+  ion-icon {
+    font-size: 25px;
+    margin: 0px;
+  }
+}
+#control ion-icon:nth-child(2) {
+  transform: scale(1.5);
+  background: aqua;
+  color: white;
+}
+
+/* Add these styles for the animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#music-player {
+  /* Other existing styles for the music player */
+  animation: fadeIn 1s ease-in-out; /* Apply the animation to the music player */
+}
+
+#music-player::before,
+#music-player::after {
+  content: "";
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  right: 5rem;
+  bottom: 0;
+  border-radius: 10px; /* Adjust the border-radius as needed */
+  z-index: -1;
+  pointer-events: none;
+  animation: discoLights 5s infinite linear;
+}
+
+@keyframes discoLights {
+  0% {
+    box-shadow: 0 0 10px blue, 0 0 30px blue, 0 0 60px blue, 0 0 200px blue;
+  }
+  25% {
+    box-shadow: 0 0 10px red, 0 0 30px red, 0 0 60px red, 0 0 200px red;
+  }
+  50% {
+    box-shadow: 0 0 10px #F5C431, 0 0 30px #f4c542, 0 0 60px #f4c542, 0 0 200px #f4c542;
+  }
+  75% {
+    box-shadow: 0 0 10px #EF0F80, 0 0 30px #EF0F80, 0 0 60px #EF0F80, 0 0 200px #EF0F80;
+  }
+  100% {
+    box-shadow: 0 0 10px #9A1B9D, 0 0 30px #9A1B9D, 0 0 60px #9A1B9D, 0 0 200px #9A1B9D;
+  }
+}
+
